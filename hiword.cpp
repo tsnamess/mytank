@@ -1,6 +1,7 @@
 #include <stdio.h>
 int main()
 {
-	printf("hh\n");
+	int a;
+	scanf("%d", &a);
 	return 0;
 }
