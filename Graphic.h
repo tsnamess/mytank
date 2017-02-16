@@ -5,7 +5,7 @@
 class Graphic
 {
 public:
-	static Graphic* Start(int x, int y);
+	static Graphic* Start();
 	static int ShowX();
 	static int ShowY();
 	~Graphic();
@@ -16,6 +16,7 @@ private:
 	COLORREF m_color;
 	static Graphic* onlyOneP;
 	Graphic(int x, int y);
+	void Beggin();
 	
 };
 

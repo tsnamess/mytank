@@ -9,8 +9,9 @@
 
 int main()
 {
-	Graphic* p = Graphic::Start(1600, 900);
-	MainTank* hp = new MainTank;
+	Graphic* p = Graphic::Start();
+	getchar();
+	/*MainTank* hp = new MainTank;
 	while (1)
 	{
 		char q;
@@ -29,7 +30,7 @@ int main()
 		}
 		hp->Move();
 	}
-	delete hp;
+	delete hp;*/
 	delete p;
 	return 0;
 }
