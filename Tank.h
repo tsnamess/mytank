@@ -13,7 +13,7 @@ public:
 protected:
 	virtual void Draw() = 0;
 	virtual void Clean() = 0;
-	virtual void TankAi(Dir dir) = 0;
+	virtual void TankAi() = 0;
 	virtual void MyNumber(Dir dir) = 0;
 	Dir m_dir;
 	Dir m_theDir;

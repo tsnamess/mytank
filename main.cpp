@@ -10,27 +10,17 @@
 int main()
 {
 	Graphic* p = Graphic::Start();
-	getchar();
-	/*MainTank* hp = new MainTank;
+	MainTank* pp = new MainTank;
+	
 	while (1)
 	{
-		char q;
-		Sleep(20);
+		Sleep(10);
 		if (kbhit())
 		{
-			q = getch();
-			if (q == 'a')
-				hp->SetDir(LEFT);
-			if (q == 'd')
-				hp->SetDir(RIGHT);
-			if (q == 'w')
-				hp->SetDir(UP);
-			if (q == 's')
-				hp->SetDir(DOWN);
+			pp->Display(getch());
 		}
-		hp->Move();
 	}
-	delete hp;*/
+	delete pp;
 	delete p;
 	return 0;
 }

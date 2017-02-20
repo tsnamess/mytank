@@ -8,14 +8,14 @@ class MainTank : public Tank
 public:
 	MainTank();
 	~MainTank();
-	//void SetDir(Dir dir);
-	void Display(Dir dir);
+	void Display(char play);
 
 private:
 	void Draw();
 	void Clean();
 	void MyNumber(Dir dir);
-	void TankAi(Dir dir);
+	void TankAi();
+	int m_otherDot;
 };
 
 #endif __MAIN_TANK__
