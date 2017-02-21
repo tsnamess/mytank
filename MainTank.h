@@ -3,12 +3,17 @@
 
 #include "Tank.h"
 
+
+
 class MainTank : public Tank
 {
 public:
+	static MainTank* MainTankP;
 	MainTank();
 	~MainTank();
 	void Display(char play);
+	int GetX();
+	int GetY();
 
 private:
 	void Draw();

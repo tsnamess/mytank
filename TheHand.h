@@ -2,20 +2,22 @@
 #define __GRSPHIC__
 
 #include <graphics.h>
-class Graphic
+
+class TheHand
 {
 public:
-	static Graphic* Start();
+	static TheHand* Start();
 	static int ShowX();
 	static int ShowY();
-	~Graphic();
+
+	~TheHand();
 
 private:
 	int m_x;
 	int m_y;
 	COLORREF m_color;
-	static Graphic* onlyOneP;
-	Graphic(int x, int y);
+	static TheHand* onlyOneP;
+	TheHand(int x, int y);
 	void Beggin();
 	
 };

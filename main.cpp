@@ -2,19 +2,20 @@
 #include <conio.h>
 #include <Windows.h>
 #include <graphics.h>
-#include "Graphic.h"
 #include "MainTank.h"
 #include "Tank.h"
-
+#include "OtherTank.h"
 
 int main()
 {
-	Graphic* p = Graphic::Start();
+	TheHand* p = TheHand::Start();
 	MainTank* pp = new MainTank;
-	
+	MainTank::MainTankP = pp;
+	OtherTank* u = new OtherTank;
 	while (1)
 	{
-		Sleep(10);
+		u->DisPlay();
+		Sleep(2000);
 		if (kbhit())
 		{
 			pp->Display(getch());

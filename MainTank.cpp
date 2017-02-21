@@ -1,4 +1,6 @@
 #include "MainTank.h"
+MainTank* MainTank::MainTankP = NULL;
+
 
 void MainTank::Draw()
 {
@@ -26,7 +28,7 @@ void MainTank::Clean()
 MainTank::MainTank()
 {
 	m_color = WHITE;
-	m_dot = false;
+	m_otherDot = 50;
 	m_dir = m_theDir = RIGHT;
 	m_step = 2;
 	m_x = 450;
@@ -51,7 +53,7 @@ void MainTank::Display(char play)
 		m_dir = UP;
 	else if (play == ' ')
 	{
-		////////////////////////////
+		//////////////make dot//////////////
 	}
 	else
 		return;
@@ -73,6 +75,16 @@ void MainTank::Display(char play)
 	else
 		m_theDir = m_dir;
 	Draw();
+}
+
+int MainTank::GetX()
+{
+	return m_x;
+}
+
+int MainTank::GetY()
+{
+	return m_y;
 }
 
 void MainTank::MyNumber(Dir dir)

@@ -1,39 +1,39 @@
 #include <stdio.h>
-#include <graphics.h>
-#include "Graphic.h"
+#include "TheHand.h"
 
-Graphic* Graphic::onlyOneP = NULL;
+TheHand* TheHand::onlyOneP = NULL;
 
-Graphic* Graphic::Start()
+
+TheHand* TheHand::Start()
 {
 	if (onlyOneP == NULL)
 	{
-		onlyOneP = new Graphic(1200, 600);
+		onlyOneP = new TheHand(1200, 600);
 	}
 	return onlyOneP;
 }
 
-int Graphic::ShowX()
+int TheHand::ShowX()
 {
 	if (onlyOneP)
 		return onlyOneP->m_x;
 	return 0;
 }
 
-int Graphic::ShowY()
+int TheHand::ShowY()
 {
 	if (onlyOneP)
 		return onlyOneP->m_y;
 	return 0;
 }
 
-Graphic::Graphic(int x, int y) : m_x(x), m_y(y)
+TheHand::TheHand(int x, int y) : m_x(x), m_y(y)
 {
 	m_color = DARKGRAY;
 	Beggin();
 }
 
-void Graphic::Beggin()
+void TheHand::Beggin()
 {
 	initgraph(m_x, m_y);
 	setbkcolor(m_color);
@@ -49,7 +49,7 @@ void Graphic::Beggin()
 	outtextxy(950, 400, zd);
 }
 
-Graphic::~Graphic()
+TheHand::~TheHand()
 {
 	closegraph();
 	onlyOneP = NULL;
