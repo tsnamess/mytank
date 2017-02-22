@@ -1,10 +1,10 @@
+#include "MainTank.h"
+#include "Tank.h"
+#include "OtherTank.h"
 #include <stdio.h>
 #include <conio.h>
 #include <Windows.h>
 #include <graphics.h>
-#include "MainTank.h"
-#include "Tank.h"
-#include "OtherTank.h"
 
 int main()
 {
@@ -25,3 +25,4 @@ int main()
 	delete p;
 	return 0;
 }
+

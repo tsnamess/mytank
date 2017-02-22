@@ -1,6 +1,6 @@
 #include "MainTank.h"
-MainTank* MainTank::MainTankP = NULL;
 
+MainTank* MainTank::MainTankP = NULL;
 
 void MainTank::Draw()
 {

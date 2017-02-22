@@ -1,5 +1,5 @@
-#ifndef __GRAPHIC__
-#define __GRSPHIC__
+#ifndef __THEHAND__
+#define __THEHAND__
 
 #include <graphics.h>
 
@@ -9,7 +9,6 @@ public:
 	static TheHand* Start();
 	static int ShowX();
 	static int ShowY();
-
 	~TheHand();
 
 private:
@@ -22,4 +21,4 @@ private:
 	
 };
 
-#endif __GRSPHIC__
+#endif __THEHAND__

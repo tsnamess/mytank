@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "TheHand.h"
+#include <stdio.h>
 
 TheHand* TheHand::onlyOneP = NULL;
 

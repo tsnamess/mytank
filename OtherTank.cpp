@@ -1,6 +1,7 @@
+#include "OtherTank.h"
 #include <stdlib.h>
 #include <time.h>
-#include "OtherTank.h"
+
 OtherTank* OtherTank::OtherTankP = NULL;
 
 OtherTank::OtherTank()
@@ -13,20 +14,25 @@ OtherTank::OtherTank()
 	m_numberP = NULL;
 	m_step = 2;
 	int js = 8;
-	while (js)
+	if (OtherTank::OtherTankP == NULL)
+		OtherTank::OtherTankP = this;
+	else
 	{
-		m_x = rand() % 1180 + 20;
-		m_y = rand() % 580 + 20;
-		if (Legal(m_x, m_y))
-			break;
-		--js;
+		while (js)
+		{
+			m_x = rand() % 1180 + 20;
+			m_y = rand() % 580 + 20;
+			if (Legal(m_x, m_y))
+				break;
+			--js;
+		}
+		if (js == 0)
+		{
+			m_x = 20;
+			m_y = 20;
+		}
+		Draw();
 	}
-	if (js == 0)
-	{
-		m_x = 20;
-		m_y = 20;
-	}
-	Draw();
 }
 
 OtherTank::~OtherTank()
@@ -87,8 +93,6 @@ void OtherTank::DisPlay()
 
 bool OtherTank::Legal(int x, int y)
 {
-	if (OtherTank::OtherTankP)
-		OtherTank::OtherTankP = this;
 	int tx = MainTank::MainTankP->GetX() - x;
 	int ty = MainTank::MainTankP->GetY() - y;
 	if (tx < 0)
@@ -98,7 +102,7 @@ bool OtherTank::Legal(int x, int y)
 	if (tx < 40 && ty < 40)
 		return false;
 
-	OtherTank* oTP = OtherTank::OtherTankP;
+	OtherTank* oTP = OtherTank::OtherTankP->GetNext();
 	while (oTP)
 	{
 		if (oTP == this)
