@@ -27,6 +27,10 @@ int TheHand::ShowY()
 	return 0;
 }
 
+void TheHand::End()
+{
+}
+
 TheHand::TheHand(int x, int y) : m_x(x), m_y(y)
 {
 	m_color = DARKGRAY;

@@ -1,9 +1,9 @@
 #ifndef __OTHER_TANK__
 #define __OTHER_TANK__
 
-#include "Tank.h"
 #include "TheHand.h"
 #include "MainTank.h"
+#include "Tank.h"
 
 class OtherTank : public Tank
 {

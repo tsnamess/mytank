@@ -12,10 +12,12 @@ int main()
 	MainTank* pp = new MainTank;
 	MainTank::MainTankP = pp;
 	OtherTank* u = new OtherTank;
+	OtherTank* uu = new OtherTank;
+	u->SetNext(uu);
 	while (1)
 	{
-		u->DisPlay();
-		Sleep(2000);
+		uu->DisPlay();
+		Sleep(20);
 		if (kbhit())
 		{
 			pp->Display(getch());

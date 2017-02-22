@@ -12,7 +12,7 @@ OtherTank::OtherTank()
 	m_color = BLUE;
 	m_theDir = m_dir = (Dir)(rand() % 4);
 	m_numberP = NULL;
-	m_step = 2;
+	m_step = 1;
 	int js = 8;
 	if (OtherTank::OtherTankP == NULL)
 		OtherTank::OtherTankP = this;
@@ -20,7 +20,7 @@ OtherTank::OtherTank()
 	{
 		while (js)
 		{
-			m_x = rand() % 1180 + 20;
+			m_x = rand() % 880 + 20;
 			m_y = rand() % 580 + 20;
 			if (Legal(m_x, m_y))
 				break;
@@ -93,6 +93,8 @@ void OtherTank::DisPlay()
 
 bool OtherTank::Legal(int x, int y)
 {
+	if (m_x < 20 || m_y < 20 || m_x > 880 || m_y > 580)
+		return false;
 	int tx = MainTank::MainTankP->GetX() - x;
 	int ty = MainTank::MainTankP->GetY() - y;
 	if (tx < 0)
@@ -151,8 +153,69 @@ void OtherTank::Clean()
 
 void OtherTank::TankAi()
 {
-	m_dir = UP;
-	/////////////////////Î´Íê////////////////////
+	int mainX = MainTank::MainTankP->GetX();
+	int mainY = MainTank::MainTankP->GetY();
+	int findMin[5];
+	findMin[0] = m_y - mainY;
+	findMin[1] = mainY - m_y;
+	findMin[2] = m_x - mainX;
+	findMin[3] = mainX - m_x;
+	findMin[4] = 2000;
+	
+	int js, jMin, jNum;
+	int turnX[4] = { 0, 0, -m_step, m_step };
+	int turnY[4] = { -m_step, m_step, 0, 0 };
+	while (1)
+	{
+		jMin = 5000;
+		for (js = 0; js < 5; ++js)
+		{
+			if (findMin[js] < jMin && findMin[js] >= 0)
+			{
+				jNum = js;
+				jMin = findMin[js];
+			}
+			if (findMin[js] == 0)
+			{
+				int jjs, jjMin = 5000, jjNum;
+				for (jjs = 0; jjs < 5; ++jjs)
+				{
+					if (findMin[jjs] < jjMin && findMin[jjs] > 0)
+					{
+						jjNum = jjs;
+						jjMin = findMin[jjs];
+					}
+				}
+				m_dir = (Dir)jjNum;
+				if (m_dir == m_theDir)
+				{
+					////////////////make dot//////////////////
+					m_dot = 0;
+					m_dir = STOP;
+					return;
+				}
+				else
+					return;
+			}
+		}
+		if (jMin == 2000)
+		{
+			m_dir = STOP;
+			return;
+		}
+		if ((Dir)jNum == m_theDir)
+		{
+			if (Legal(m_x + turnX[jNum], m_y + turnY[jNum]))
+				return;
+			else
+				findMin[jNum] = 3000;
+		}
+		else
+		{
+			m_dir = (Dir)jNum;
+			return;
+		}
+	}
 }
 
 void OtherTank::MyNumber(Dir dir)

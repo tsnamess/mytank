@@ -9,6 +9,7 @@ public:
 	static TheHand* Start();
 	static int ShowX();
 	static int ShowY();
+	static void End();
 	~TheHand();
 
 private:

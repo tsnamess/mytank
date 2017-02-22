@@ -33,6 +33,7 @@ MainTank::MainTank()
 	m_step = 2;
 	m_x = 450;
 	m_y = 300;
+	m_life = 3;
 	Draw();
 }
 
@@ -87,6 +88,11 @@ int MainTank::GetY()
 	return m_y;
 }
 
+void MainTank::SetLife(int life)
+{
+	m_life = life;
+}
+
 void MainTank::MyNumber(Dir dir)
 {
 	
@@ -138,5 +144,40 @@ void MainTank::MyNumber(Dir dir)
 
 void MainTank::TankAi()
 {
-	///////////////////////////////Î´Íê//////////////////////////////////////////
+	int mx = m_x;
+	int my = m_y;
+	if (m_dir == m_theDir)
+	{
+		if (m_dir == UP)
+			my -= m_step;
+		if (m_dir == DOWN)
+			my += m_step;
+		if (m_dir == LEFT)
+			mx -= m_step;
+		if (m_dir == RIGHT)
+			mx += m_step;
+	}
+	if (mx < 20 || my < 20 || mx > 880 || my > 580)
+	{
+		m_dir = STOP;
+		return;
+	}
+
+	int tx, ty;
+	OtherTank* oTP = OtherTank::OtherTankP->GetNext();
+	while (oTP)
+	{
+		tx = oTP->GetX() - mx;
+		ty = oTP->GetY() - my;
+		if (tx < 0)
+			tx = -tx;
+		if (ty < 0)
+			ty = -ty;
+		if (tx < 40 && ty < 40)
+		{
+			m_dir = STOP;
+			return;
+		}
+		oTP = oTP->GetNext();
+	}
 }
