@@ -54,6 +54,10 @@ void MainTank::Display(char play)
 		m_dir = UP;
 	else if (play == ' ')
 	{
+		if (m_otherDot == 0)
+			return;
+		--m_otherDot;
+
 		//////////////make dot//////////////
 	}
 	else
@@ -88,9 +92,16 @@ int MainTank::GetY()
 	return m_y;
 }
 
-void MainTank::SetLife(int life)
+void MainTank::SetLife()
 {
-	m_life = life;
+	--m_life;
+	clearrectangle(1000, 280, 1080, 320);
+	for (int i = 0, int theNum = 990; i < m_life; ++i)
+	{
+		setfillcolor(RED);
+		solidrectangle(theNum + 10, 280, theNum + 30, 320);
+		theNum += 30;
+	}
 }
 
 void MainTank::MyNumber(Dir dir)

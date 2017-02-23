@@ -9,6 +9,7 @@
 int main()
 {
 	TheHand* p = TheHand::Start();
+#if 0
 	MainTank* pp = new MainTank;
 	MainTank::MainTankP = pp;
 	OtherTank* u = new OtherTank;
@@ -25,6 +26,8 @@ int main()
 	}
 	delete pp;
 	delete p;
+#endif
+	getchar();
 	return 0;
 }
 

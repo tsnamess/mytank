@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 TheHand* TheHand::onlyOneP = NULL;
-
+bool TheHand::theSign = false;
 
 TheHand* TheHand::Start()
 {
@@ -47,10 +47,16 @@ void TheHand::Beggin()
 	TCHAR dft[] = _T("敌方坦克:");
 	TCHAR zd[] = _T("子弹:");
 	TCHAR life[] = _T("生命:");
+	TCHAR zdn[] = _T("50");
 	settextcolor(GREEN);
 	outtextxy(950, 100, dft);
 	outtextxy(950, 300, life);
 	outtextxy(950, 400, zd);
+	outtextxy(970, 400, zdn);
+	setfillcolor(RED);
+	solidrectangle(1000, 280, 1020, 320);
+	solidrectangle(1030, 280, 1050, 320);
+	solidrectangle(1060, 280, 1080, 320);
 }
 
 TheHand::~TheHand()

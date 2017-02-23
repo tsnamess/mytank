@@ -6,6 +6,12 @@
 class TheHand
 {
 public:
+	static bool theSign;
+	template <typename T>
+	static void TheEnd(T deleteP)
+	{
+		delete deleteP;
+	}
 	static TheHand* Start();
 	static int ShowX();
 	static int ShowY();
@@ -23,3 +29,4 @@ private:
 };
 
 #endif __THEHAND__
+

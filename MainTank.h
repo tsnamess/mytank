@@ -13,7 +13,7 @@ public:
 	void Display(char play);
 	int GetX();
 	int GetY();
-	void SetLife(int life);
+	void SetLife();
 
 private:
 	void Draw();
