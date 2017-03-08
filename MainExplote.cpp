@@ -2,14 +2,14 @@
 
 MainExplote* MainExplote::MainExploteP = NULL;
 
-void MainExplote::Add(MyMainDot * mMDP)
+/*void MainExplote::Add(MyMainDot * mMDP)
 {
 	DuiLie* lsh = new DuiLie;
 	lsh->m_mMDP = mMDP;
 	lsh->m_oTP = NULL;
 	lsh->m_next = m_head;
 	m_head = lsh;
-}
+}*/
 
 void MainExplote::Add(MyMainDot * mMDP, OtherTank * oTP)
 {

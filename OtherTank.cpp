@@ -1,4 +1,9 @@
+
 #include "OtherTank.h"
+#include "MainTank.h"
+#include "MyOtherDot.h"
+#include <time.h>
+#include <stdlib.h>
 
 OtherTank* OtherTank::OtherTankP = NULL;
 

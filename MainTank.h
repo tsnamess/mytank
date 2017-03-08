@@ -1,9 +1,8 @@
 #ifndef __MAIN_TANK__
 #define __MAIN_TANK__
 
-#include "OtherTank.h"
-//#include "Tank.h"
-#include "MyMainDot.h"
+//#include "allhead.h"
+#include "Tank.h"
 
 class MainTank : public Tank
 {

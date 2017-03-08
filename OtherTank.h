@@ -1,12 +1,8 @@
 #ifndef __OTHER_TANK__
 #define __OTHER_TANK__
 
-//#include "TheHand.h"
-#include "MainTank.h"
-//#include "Tank.h"
-#include "MyOtherDot.h"
-#include <stdlib.h>
-#include <time.h>
+//#include "allhead.h"
+#include "Tank.h"
 
 class OtherTank : public Tank
 {

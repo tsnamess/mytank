@@ -1,4 +1,6 @@
 #include "MainTank.h"
+#include "OtherTank.h"
+#include "MyMainDot.h"
 
 MainTank* MainTank::MainTankP = NULL;
 
@@ -98,7 +100,8 @@ void MainTank::SetLife()
 {
 	--m_life;
 	clearrectangle(1000, 280, 1080, 320);
-	for (int i = 0, int theNum = 990; i < m_life; ++i)
+	int theNum = 990;
+	for (int i = 0; i < m_life; ++i)
 	{
 		setfillcolor(RED);
 		solidrectangle(theNum + 10, 280, theNum + 30, 320);

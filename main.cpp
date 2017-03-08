@@ -1,15 +1,12 @@
-#include "MainTank.h"
-#include "Tank.h"
-#include "TheHand.h"
-#include "OtherTank.h"
+/*#include "allhead.h"
 #include <stdio.h>
 #include <conio.h>
 #include <Windows.h>
-#include <graphics.h>
+#include <graphics.h>*/
 
 int main()
 {
-	TheHand* p = TheHand::Start();
+	/*TheHand* p = TheHand::Start();
 #if 0
 	MainTank* pp = new MainTank;
 	MainTank::MainTankP = pp;
@@ -27,8 +24,8 @@ int main()
 	}
 	delete pp;
 	delete p;
-#endif
-	getchar();
+#endif*/
+	//getchar();
 	return 0;
 }
 

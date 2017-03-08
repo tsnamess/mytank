@@ -1,15 +1,14 @@
 #ifndef __OTHER_EXPLOTE__
 #define __OTHER_EXPLOTE__
-//#include "OtherTank.h"
-//#include "OtherTank.h"
-#include "MainTank.h"
 #include "Explote.h"
-//#include "MyOtherDot.h"
+#include "MyOtherDot.h"
+#include "MainTank.h"
+//#include "allhead.h"
 class OtherExplote : public Explote
 {
 public:
-	void Add(MyOtherDot* mODP);
-	void Add(MyOtherDot* mODP, MainTank* mTP);
+	//void Add(MyOtherDot* mODP);
+	void Add(MyOtherDot* mODP, MainTank* mTP = NULL);
 	~OtherExplote();
 	void DisPlay();
 	static OtherExplote* Start();

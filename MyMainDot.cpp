@@ -1,4 +1,6 @@
 #include "MyMainDot.h"
+#include "MainTank.h"
+#include "MainExplote.h"
 
 MyMainDot* MyMainDot::MyMainDotP = NULL;
 

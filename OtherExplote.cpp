@@ -2,14 +2,14 @@
 
 OtherExplote* OtherExplote::OtherExploteP = NULL;
 
-void OtherExplote::Add(MyOtherDot * mODP)
+/*void OtherExplote::Add(MyOtherDot * mODP)
 {
 	DuiLie* lsh = new DuiLie;
 	lsh->m_mODP = mODP;
 	lsh->m_mTP = NULL;
 	lsh->m_next = m_head;
 	m_head = lsh;
-}
+}*/
 
 void OtherExplote::Add(MyOtherDot * mODP, MainTank * mTP)
 {

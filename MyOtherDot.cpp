@@ -1,4 +1,7 @@
 #include "MyOtherDot.h"
+#include "OtherTank.h"
+#include "MainTank.h"
+#include "OtherExplote.h"
 
 MyOtherDot* MyOtherDot::MyOtherDotP = NULL;
 

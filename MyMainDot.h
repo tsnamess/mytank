@@ -2,9 +2,6 @@
 #define __MY_MAIN_DOT__
 
 #include "MyDot.h"
-#include "MainTank.h"
-//#include "OtherTank.h"
-#include "MainExplote.h"
 class MyMainDot : public MyDot
 {
 public:

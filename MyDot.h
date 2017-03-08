@@ -1,8 +1,9 @@
 #ifndef __MY_DOT__
 #define __MY_DOT__
 
-#include "Tank.h"
+//#include "allhead.h"
 #include <graphics.h>
+#include "Tank.h"
 
 class MyDot
 {

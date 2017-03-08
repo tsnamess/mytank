@@ -1,15 +1,16 @@
 #ifndef __MAIN_EXPLOTE__
 #define __MAIN_EXPLOTE__
 
+//#include "allhead.h"
+#include "MyMainDot.h"
 #include "Explote.h"
-//#include "MyMainDot.h"
 #include "OtherTank.h"
 
 class MainExplote : public Explote
 {
 public:
-	void Add(MyMainDot* mMDP);
-	void Add(MyMainDot* mMDP, OtherTank* oTP);
+	//void Add(MyMainDot* mMDP);
+	void Add(MyMainDot* mMDP, OtherTank* oTP = NULL);
 	~MainExplote();
 	void DisPlay();
 	static MainExplote* Start();

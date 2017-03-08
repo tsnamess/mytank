@@ -2,10 +2,7 @@
 #define __MY_OTHER_DOT__
 
 #include "MyDot.h"
-#include "MainTank.h"
-//#include "OtherTank.h"
-#include "OtherExplote.h"
-//#include <graphics.h>
+//#include "allhead.h"
 
 class MyOtherDot : public MyDot
 {
