@@ -7,7 +7,6 @@
 class MyDot
 {
 public:
-	virtual ~MyDot() {}
 	virtual void Display() = 0;
 
 protected:

@@ -2,16 +2,20 @@
 #define __MY_MAIN_DOT__
 
 #include "MyDot.h"
-#include "OtherTank.h"
+#include "MainTank.h"
+//#include "OtherTank.h"
+#include "MainExplote.h"
 class MyMainDot : public MyDot
 {
 public:
+	static MyMainDot* MyMainDotP;
 	MyMainDot(int x, int y, Dir dir);
 	~MyMainDot();
 	void Display();
 	MyMainDot* m_next;
+	MyMainDot* m_up;
 
-protected:
+private:
 
 	bool Judge();
 };

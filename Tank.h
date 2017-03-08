@@ -6,10 +6,7 @@
 enum Dir { UP, DOWN, LEFT, RIGHT, STOP };
 
 class Tank
-{
-public:
-	virtual ~Tank() {}
-	
+{	
 protected:
 	virtual void Draw() = 0;
 	virtual void Clean() = 0;

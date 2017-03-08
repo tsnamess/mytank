@@ -1,8 +1,6 @@
 #include "TheHand.h"
-#include <stdio.h>
 
 TheHand* TheHand::onlyOneP = NULL;
-bool TheHand::theSign = false;
 
 TheHand* TheHand::Start()
 {
@@ -29,6 +27,7 @@ int TheHand::ShowY()
 
 void TheHand::End()
 {
+	delete onlyOneP;
 }
 
 TheHand::TheHand(int x, int y) : m_x(x), m_y(y)

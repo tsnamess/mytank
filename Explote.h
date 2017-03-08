@@ -5,9 +5,7 @@
 
 class Explote
 {
-public:
-	virtual ~Explote() {}
-private:
+protected:
 	COLORREF m_color;
 };
 

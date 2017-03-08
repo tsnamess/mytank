@@ -1,6 +1,4 @@
 #include "OtherTank.h"
-#include <stdlib.h>
-#include <time.h>
 
 OtherTank* OtherTank::OtherTankP = NULL;
 
@@ -8,14 +6,19 @@ OtherTank::OtherTank()
 {
 	srand(time(NULL));
 	m_dot = 0;
-	m_next = NULL;
+	
 	m_color = BLUE;
 	m_theDir = m_dir = (Dir)(rand() % 4);
 	m_numberP = NULL;
 	m_step = 1;
 	int js = 8;
 	if (OtherTank::OtherTankP == NULL)
+	{
+		m_next = NULL;
 		OtherTank::OtherTankP = this;
+		new OtherTank();
+		return;
+	}
 	else
 	{
 		while (js)
@@ -33,6 +36,8 @@ OtherTank::OtherTank()
 		}
 		Draw();
 	}
+	m_next = OtherTankP->GetNext();
+	OtherTankP->SetNext(this);
 }
 
 OtherTank::~OtherTank()
@@ -67,6 +72,7 @@ void OtherTank::DisPlay()
 	if (m_dot == 3)
 	{
 		///////////////////make dot/////////////
+		new MyOtherDot(m_x, m_y, m_theDir);
 		m_dot = 0;
 		return;
 	}
@@ -93,7 +99,7 @@ void OtherTank::DisPlay()
 
 bool OtherTank::Legal(int x, int y)
 {
-	if (m_x < 20 || m_y < 20 || m_x > 880 || m_y > 580)
+	if (m_x < 20 || m_y < 20 || m_x >= 880 || m_y >= 580)
 		return false;
 	int tx = MainTank::MainTankP->GetX() - x;
 	int ty = MainTank::MainTankP->GetY() - y;
@@ -101,7 +107,7 @@ bool OtherTank::Legal(int x, int y)
 		tx = -tx;
 	if (ty < 0)
 		ty = -ty;
-	if (tx < 40 && ty < 40)
+	if (tx <= 40 && ty <= 40)
 		return false;
 
 	OtherTank* oTP = OtherTank::OtherTankP->GetNext();
@@ -118,7 +124,7 @@ bool OtherTank::Legal(int x, int y)
 			tx = -tx;
 		if (ty < 0)
 			ty = -ty;
-		if (tx < 40 && ty < 40)
+		if (tx <= 40 && ty <= 40)
 			return false;
 		oTP = oTP->GetNext();
 	}
@@ -190,6 +196,7 @@ void OtherTank::TankAi()
 				if (m_dir == m_theDir)
 				{
 					////////////////make dot//////////////////
+					new MyOtherDot(m_x, m_y, m_theDir);
 					m_dot = 0;
 					m_dir = STOP;
 					return;

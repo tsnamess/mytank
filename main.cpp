@@ -1,5 +1,6 @@
 #include "MainTank.h"
 #include "Tank.h"
+#include "TheHand.h"
 #include "OtherTank.h"
 #include <stdio.h>
 #include <conio.h>

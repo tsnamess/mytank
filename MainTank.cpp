@@ -29,6 +29,7 @@ MainTank::MainTank()
 {
 	m_color = WHITE;
 	m_otherDot = 50;
+	MainTankP = this;
 	m_dir = m_theDir = RIGHT;
 	m_step = 2;
 	m_x = 450;
@@ -39,6 +40,7 @@ MainTank::MainTank()
 
 MainTank::~MainTank()
 {
+	MainTankP = NULL;
 	Clean();
 }
 
@@ -57,7 +59,7 @@ void MainTank::Display(char play)
 		if (m_otherDot == 0)
 			return;
 		--m_otherDot;
-
+		new MyMainDot(m_x, m_y, m_theDir);
 		//////////////make dot//////////////
 	}
 	else
@@ -102,6 +104,10 @@ void MainTank::SetLife()
 		solidrectangle(theNum + 10, 280, theNum + 30, 320);
 		theNum += 30;
 	}
+}
+
+void MainTank::AddGold()
+{
 }
 
 void MainTank::MyNumber(Dir dir)
@@ -184,7 +190,7 @@ void MainTank::TankAi()
 			tx = -tx;
 		if (ty < 0)
 			ty = -ty;
-		if (tx < 40 && ty < 40)
+		if (tx <= 40 && ty <= 40)
 		{
 			m_dir = STOP;
 			return;

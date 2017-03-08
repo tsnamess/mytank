@@ -2,7 +2,8 @@
 #define __MAIN_TANK__
 
 #include "OtherTank.h"
-#include "Tank.h"
+//#include "Tank.h"
+#include "MyMainDot.h"
 
 class MainTank : public Tank
 {
@@ -14,6 +15,7 @@ public:
 	int GetX();
 	int GetY();
 	void SetLife();
+	void AddGold();
 
 private:
 	void Draw();
