@@ -42,6 +42,7 @@ void MainExplote::DisPlay()
 		lsh = lsh->m_next;
 		delete olsh;
 	}
+	m_head = NULL;
 }
 
 MainExplote * MainExplote::Start()
@@ -56,4 +57,5 @@ MainExplote * MainExplote::Start()
 
 MainExplote::MainExplote()
 {
+	m_head = NULL;
 }

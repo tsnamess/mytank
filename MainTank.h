@@ -13,12 +13,14 @@ public:
 	void Display(char play);
 	int GetX();
 	int GetY();
+	void SetX(int x);
+	void SetY(int y);
 	void SetLife();
 	void AddGold();
+	void Clean();
 
 private:
 	void Draw();
-	void Clean();
 	void MyNumber(Dir dir);
 	void TankAi();
 	int m_life;

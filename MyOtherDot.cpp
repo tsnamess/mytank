@@ -17,7 +17,7 @@ MyOtherDot::MyOtherDot(int x, int y, Dir dir)
 		if (MyOtherDotP->m_next)
 			MyOtherDotP->m_next->m_up = this;
 		m_up = MyOtherDotP;
-		MyOtherDotP->m_next = m_next;
+		MyOtherDotP->m_next = this;
 	}
 	else
 	{

@@ -1,6 +1,7 @@
 #include "MainTank.h"
 #include "OtherTank.h"
 #include "MyMainDot.h"
+#include <stdio.h>
 
 MainTank* MainTank::MainTankP = NULL;
 
@@ -61,6 +62,11 @@ void MainTank::Display(char play)
 		if (m_otherDot == 0)
 			return;
 		--m_otherDot;
+		TCHAR lszdn[10] = _T("     ");
+		outtextxy(1000, 400, lszdn);
+		_stprintf(lszdn, _T("%d"), m_otherDot);
+		//TCHAR zdn[] = _T(lszdn);
+		outtextxy(1000, 400, lszdn);
 		new MyMainDot(m_x, m_y, m_theDir);
 		//////////////make dot//////////////
 	}
@@ -94,6 +100,16 @@ int MainTank::GetX()
 int MainTank::GetY()
 {
 	return m_y;
+}
+
+void MainTank::SetX(int x)
+{
+	m_x = x;
+}
+
+void MainTank::SetY(int y)
+{
+	m_y = y;
 }
 
 void MainTank::SetLife()

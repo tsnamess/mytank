@@ -14,6 +14,8 @@ public:
 	int GetY();
 	void SetNext(OtherTank* next);
 	OtherTank* GetNext();
+	void SetUp(OtherTank* up);
+	OtherTank* GetUp();
 	void DisPlay();
 
 protected:
@@ -24,6 +26,7 @@ protected:
 	void MyNumber(Dir dir);
 	int m_dot;
 	OtherTank* m_next;
+	OtherTank* m_up;
 };
 
 #endif __OTHER_TANK__

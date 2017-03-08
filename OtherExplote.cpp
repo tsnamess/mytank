@@ -37,11 +37,17 @@ void OtherExplote::DisPlay()
 	{
 		delete lsh->m_mODP;
 		if (lsh->m_mTP)
-			delete lsh->m_mTP;
+		{
+			lsh->m_mTP->Clean();
+			lsh->m_mTP->SetX(450);
+			lsh->m_mTP->SetY(300);
+		}
+
 		olsh = lsh;
 		lsh = lsh->m_next;
 		delete olsh;
 	}
+	m_head = NULL;
 }
 
 OtherExplote * OtherExplote::Start()
@@ -56,4 +62,5 @@ OtherExplote * OtherExplote::Start()
 
 OtherExplote::OtherExplote()
 {
+	m_head = NULL;
 }

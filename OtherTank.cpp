@@ -20,6 +20,7 @@ OtherTank::OtherTank()
 	if (OtherTank::OtherTankP == NULL)
 	{
 		m_next = NULL;
+		m_up = NULL;
 		OtherTank::OtherTankP = this;
 		new OtherTank();
 		return;
@@ -42,13 +43,20 @@ OtherTank::OtherTank()
 		Draw();
 	}
 	m_next = OtherTankP->GetNext();
+	if (OtherTankP->GetNext())
+		OtherTankP->GetNext()->SetUp(this);
+	m_up = OtherTankP;
 	OtherTankP->SetNext(this);
 }
 
 OtherTank::~OtherTank()
 {
 	Clean();
+	m_up->SetNext(m_next);
+	if (m_next)
+		m_next->SetUp(m_up);
 	m_next = NULL;
+	m_up = NULL;
 	m_numberP = NULL;
 }
 
@@ -72,9 +80,19 @@ OtherTank * OtherTank::GetNext()
 	return m_next;
 }
 
+void OtherTank::SetUp(OtherTank * up)
+{
+	m_up = up;
+}
+
+OtherTank * OtherTank::GetUp()
+{
+	return m_up;
+}
+
 void OtherTank::DisPlay()
 {
-	if (m_dot == 3)
+	if (m_dot == 120)
 	{
 		///////////////////make dot/////////////
 		new MyOtherDot(m_x, m_y, m_theDir);
@@ -201,9 +219,13 @@ void OtherTank::TankAi()
 				if (m_dir == m_theDir)
 				{
 					////////////////make dot//////////////////
-					new MyOtherDot(m_x, m_y, m_theDir);
-					m_dot = 0;
+					if (m_dot > 80)
+					{
+						new MyOtherDot(m_x, m_y, m_theDir);
+						m_dot = 0;
+					}
 					m_dir = STOP;
+					++m_dot;
 					return;
 				}
 				else

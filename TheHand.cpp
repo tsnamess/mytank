@@ -51,7 +51,7 @@ void TheHand::Beggin()
 	outtextxy(950, 100, dft);
 	outtextxy(950, 300, life);
 	outtextxy(950, 400, zd);
-	outtextxy(970, 400, zdn);
+	outtextxy(1000, 400, zdn);
 	setfillcolor(RED);
 	solidrectangle(1000, 280, 1020, 320);
 	solidrectangle(1030, 280, 1050, 320);
